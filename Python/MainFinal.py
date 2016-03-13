@@ -1,7 +1,8 @@
 import pygame, random, math, menuv2, os, sys
 from random import *
 from astar import *
-from generate import *
+#from generate import *
+import shipvar
 
 #Importing all required libraries and files for the program
 
@@ -211,7 +212,7 @@ class Ship:
 
         def __init__(self, display_width, display_height):
 
-            Ship = pygame.image.load("spaceship.png") #Load the sprite image
+            Ship = pygame.image.load(shipvar.shipName) #Load the sprite image
             
             self.dir = 0 #Direction of ship in degrees, taken from a north bearing
             self.rot = 0 #Current rotation amount
@@ -253,7 +254,7 @@ class Ship:
                 self.velY *= 0.99
 
             #Rotate ship to current direction
-            Ship = pygame.transform.rotate(pygame.image.load("spaceship.png"),self.dir)
+            Ship = pygame.transform.rotate(pygame.image.load(shipvar.shipName),self.dir)
 
             spriteW, spriteH = Ship.get_size() #Obtain sprite dimensions
 
